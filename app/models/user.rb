@@ -15,8 +15,11 @@ class User < ActiveRecord::Base
 
   before_save :makelowercase
 
+
   def makelowercase
     User.name.downcase
   end
+
+
 
 end
