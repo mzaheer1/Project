@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Username:</b>
+  <%= @user.name %>
+</p>
+
+<p>
+  <b>Userid:</b>
+  <%= @user.userid %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @user.email %>
+</p>
+
+
+<p>
+  <b>Member of :</b>
+  <ul>
+  <% @user.memberships.each do |member| %>
+    <li><%= member.group.name %>
+    <%= link_to image_tag("trash-can-icon.jpg", size: '20x20'), note_url(note), method: 'delete', remote: true %>
+    </li>
+  <% end %>
+  </ul>
+</p>
+
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

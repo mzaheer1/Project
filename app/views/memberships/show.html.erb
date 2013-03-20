@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Userid:</b>
+  <%= @membership.user_id %>
+</p>
+
+<p>
+  <b>Groupid:</b>
+  <%= @membership.group_id %>
+</p>
+
+<%= form_tag(memberships_path) do %>
+    <%= hidden_field_tag @group.id %>
+    <%= submit_tag "Join Group"%>
+<% end %>
+
+<%= link_to 'Edit', edit_membership_path(@membership) %> |
+<%= link_to 'Back', memberships_path %>

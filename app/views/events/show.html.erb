@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Eventname:</b>
+  <%= @event.name %>
+</p>
+
+<p>
+  <b>Venue:</b>
+  <%= @event.venue.name %>
+</p>
+
+
+<p>
+  <b>Time:</b>
+  <%= @event.time %>
+</p>
+
+<p>
+  <b>Group:</b>
+  <%= @event.group.name %>
+</p>
+
+<% if session[:user_id] %>
+	<%= form_tag attends_path(params[:attend]) do %>
+    <%= hidden_field_tag "attend[user_id]", session[:user_id] %>
+    <%= hidden_field_tag "attend[event_id]", @event.id %>
+    <%= hidden_field_tag "attend[group_id]", @event.group_id %>
+    
+    <%= submit_tag "Join Event"%>
+	<% end %>
+<% end %>	
+
+<%= link_to 'Edit', edit_event_path(@event) %> |
+<%= link_to 'Back', events_path %>

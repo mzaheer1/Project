@@ -1,0 +1,36 @@
+<h2>Events:</h2>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Time</th>
+    <th>Venue</th>
+    <th>Group</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @events.each do |event| %>
+
+<!--<% @venue = @venues.find {|venue| venue.id == event.venue_id} %>-->
+  
+  <tr>
+
+
+ <td><%= link_to event.name, event %></td>
+
+<td><%= event.time %></td>
+
+ <td><%=link_to @venue.name, @venue %></td>
+ <td><%=link_to @group.name, @group %></td>
+    <td><%= link_to 'Edit', edit_event_path(event) %></td>
+    <td><%= link_to 'Delete', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+
+<% end %>
+</table>
+
+<br />
+
+<h2><%= link_to 'Add an Event', new_event_path %></h2>

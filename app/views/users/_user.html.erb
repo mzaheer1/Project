@@ -1,0 +1,4 @@
+<li id="user_<%= user.id %>"><%= user.name %>
+  <%= link_to image_tag("trash-can-icon.jpg", size: '20x20'), user_url(user), method: 'delete', remote: true %>
+  ></a>
+  </li>

@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @group.name %>
+</p>
+
+<p>
+  <b>Tag:</b>
+  <%= @group.tag %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @group.description %>
+</p>
+
+<% if session[:user_id] %>
+	<%= form_tag memberships_path(params[:membership]) do %>
+    <%= hidden_field_tag "membership[user_id]", session[:user_id] %>
+    <%= hidden_field_tag "membership[group_id]", @group.id %>
+    
+    <%= submit_tag "Join Group"%>
+	<% end %>
+<% end %>	
+
+<!-- <%= link_to 'Edit', edit_group_path(@group) %> |
+<%= link_to 'Back', groups_path %> -->
